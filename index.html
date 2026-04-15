@@ -1246,6 +1246,132 @@
     * { box-shadow: none !important; }
   }
 </style>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<style>
+  /* ============================================================
+     MAP SECTION
+  ============================================================ */
+  #map-section { padding: 5rem 2rem; }
+
+  #trip-map {
+    width: 100%;
+    height: 520px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(45,74,45,0.5);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #0e1e0e;
+  }
+
+  /* Override Leaflet popups to match dark theme */
+  .leaflet-popup-content-wrapper {
+    background: #1a2e1a !important;
+    border: 1px solid rgba(212,137,26,0.35) !important;
+    border-radius: 12px !important;
+    color: #f5f0e8 !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  .leaflet-popup-tip { background: #1a2e1a !important; }
+  .leaflet-popup-close-button { color: #d4891a !important; font-size: 18px !important; }
+  .leaflet-popup-close-button:hover { color: #f0c060 !important; }
+
+  .popup-icon { font-size: 1.5rem; margin-bottom: 4px; }
+  .popup-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: #f5f0e8; margin-bottom: 2px; font-weight: 600; }
+  .popup-type { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #d4891a; margin-bottom: 6px; }
+  .popup-desc { font-size: 0.78rem; color: #8a9e86; line-height: 1.5; max-width: 200px; }
+  .popup-dist { font-size: 0.7rem; color: #d4891a; margin-top: 4px; font-weight: 500; }
+
+  .map-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .map-legend {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cache-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(212,137,26,0.12);
+    border: 1px solid rgba(212,137,26,0.35);
+    color: var(--amber-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1.2rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+  }
+  .cache-btn:hover { background: rgba(212,137,26,0.2); border-color: var(--amber); }
+  .cache-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .cache-btn.success { background: rgba(80,160,80,0.15); border-color: rgba(100,180,100,0.4); color: #90d090; }
+
+  .offline-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    background: rgba(80,160,80,0.1);
+    border: 1px solid rgba(100,180,100,0.3);
+    color: #90d090;
+    font-weight: 500;
+  }
+
+  .offline-badge.inactive {
+    background: rgba(212,137,26,0.08);
+    border-color: rgba(212,137,26,0.2);
+    color: var(--text-muted);
+  }
+
+  /* Custom Leaflet marker styles */
+  .custom-marker {
+    width: 32px; height: 32px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+  .custom-marker .marker-inner {
+    transform: rotate(45deg);
+    font-size: 14px;
+    line-height: 1;
+  }
+</style>
 </head>
 <body>
 
@@ -1258,6 +1384,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#itinerary">Itinerary</a></li>
+      <li><a href="#map-section">Map</a></li>
       <li><a href="#attractions">Attractions</a></li>
       <li><a href="#hidden">Hidden Gems</a></li>
       <li><a href="#packing">Packing</a></li>
@@ -1567,6 +1694,38 @@
     </div>
   </div>
 
+</section>
+</div>
+
+<!-- ============================================================
+     INTERACTIVE MAP
+============================================================ -->
+<div class="section-wrap dark" id="map-section">
+<section>
+  <span class="section-label">Trip Navigation</span>
+  <h2 class="section-title">Interactive Route Map</h2>
+  <p class="section-desc">All key locations pinned. Cache tiles while online for offline use in the wilderness.</p>
+  <div class="divider"></div>
+
+  <div class="map-controls">
+    <button class="cache-btn" id="cacheBtn" onclick="cacheTiles()">
+      ⬇️ Cache Map for Offline Use
+    </button>
+    <div class="offline-badge inactive" id="offlineBadge">
+      ○ Not cached yet
+    </div>
+  </div>
+
+  <div class="map-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#d4891a"></div> Base Camp</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4a9e4a"></div> Day Trips</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#9b59b6"></div> Hidden Gems</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3498db"></div> Muskoka Stops</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e74c3c"></div> Emergency</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#95a5a6"></div> Drive Route</div>
+  </div>
+
+  <div id="trip-map"></div>
 </section>
 </div>
 
@@ -2352,5 +2511,221 @@
 
   window.addEventListener('scroll', onScroll, { passive: true });
 </script>
+<!-- ============================================================
+     MAP JAVASCRIPT
+============================================================ -->
+<script>
+// ── Locations ──────────────────────────────────────────────
+const LOCATIONS = [
+  // Base
+  { lat: 45.092, lng: -77.876, icon: '🏕️', title: "L'Amable Lake Cottage", type: 'BASE CAMP', desc: 'Your off-grid home base for 2 nights. No power supply — bring everything.', color: '#d4891a', dist: '' },
+
+  // Day 1 stops
+  { lat: 44.3498, lng: -78.7373, icon: '☕', title: 'Lindsay / Coffee Stop 1', type: 'DRIVE STOP · ~1 HR', desc: 'Coffee and washroom break. Tim Hortons or local café.', color: '#95a5a6', dist: '~1 hr from Brampton' },
+  { lat: 45.0567, lng: -77.8558, icon: '🏙️', title: 'Bancroft', type: 'TOWN · DAY 1 STOP', desc: 'Second coffee stop. Grab any last-minute groceries. Check out Bancroft Brewing Co.', color: '#95a5a6', dist: '~20 min from cottage' },
+
+  // Day 2 - Algonquin
+  { lat: 45.5333, lng: -78.3667, icon: '🌲', title: 'Algonquin Provincial Park', type: 'DAY 2 · MAIN DESTINATION', desc: 'Hiking, wildlife, canoe rentals. Lookout Trail, Track & Tower Trail. Day use ~$20.', color: '#4a9e4a', dist: '~45 min from cottage' },
+  { lat: 45.6453, lng: -78.4869, icon: '🛶', title: 'Portage Store — Canoe Lake', type: 'ALGONQUIN · CANOE RENTAL', desc: 'Algonquin outfitter for canoe and kayak rentals. Call ahead for availability.', color: '#4a9e4a', dist: 'Inside Algonquin Park' },
+  { lat: 45.5764, lng: -78.5217, icon: '🏛️', title: 'Algonquin Visitor Centre', type: 'ALGONQUIN · STOP', desc: 'Natural history exhibits, bookstore, park maps. Worth 30–45 min.', color: '#4a9e4a', dist: 'Inside Algonquin Park' },
+
+  // Day 3 - Muskoka
+  { lat: 44.9199, lng: -79.3734, icon: '⚓', title: 'Muskoka Wharf — Gravenhurst', type: 'DAY 3 · MUSKOKA', desc: 'Lakeside promenade, shops, cafes, RMS Segwun steamship. Beautiful waterfront.', color: '#3498db', dist: '~1.5 hrs from cottage' },
+  { lat: 45.0374, lng: -79.3098, icon: '💧', title: 'Bracebridge Falls', type: 'DAY 3 · QUICK STOP', desc: 'Dramatic urban waterfall in downtown Bracebridge. Walk the riverside trail.', color: '#3498db', dist: '~20 min from Gravenhurst' },
+  { lat: 44.9856, lng: -79.6147, icon: '🍁', title: 'Bala, ON', type: 'DAY 3 · OPTIONAL', desc: 'Scenic village where two rivers meet. Cranberry country. Very photogenic.', color: '#3498db', dist: '~20 min from Bracebridge' },
+  { lat: 44.9333, lng: -79.5833, icon: '🌙', title: 'Torrance Barrens Dark Sky Preserve', type: 'FUTURE VISIT · DARK SKY', desc: "Ontario's first designated Dark Sky Preserve. Best for summer night visits.", color: '#3498db', dist: '~15 min from Bala' },
+
+  // Hidden Gems
+  { lat: 45.082, lng: -77.724, icon: '🌊', title: 'Egan Chutes Provincial Park', type: 'HIDDEN GEM · WATERFALL', desc: 'Three wild waterfalls. No signs, no fees, no crowds. Enter off Hwy 28 East.', color: '#9b59b6', dist: '~20 min from Bancroft' },
+  { lat: 45.063, lng: -77.857, icon: '🦅', title: "Eagle's Nest Lookout", type: 'HIDDEN GEM · VIEWPOINT', desc: 'Panoramic cliff views over York River Valley. Prime raptor migration spot in April.', color: '#9b59b6', dist: 'In Bancroft' },
+  { lat: 44.950, lng: -77.920, icon: '🏞️', title: 'Silent Lake Provincial Park', type: 'HIDDEN GEM · PADDLING', desc: 'Motor-free lake. Perfect flat-water paddling. 15 km lakeshore trail.', color: '#9b59b6', dist: '~30 min from cottage' },
+  { lat: 45.37, lng: -77.617, icon: '🪵', title: 'Crooked Slide Park — Combermere', type: 'HIDDEN GEM · HERITAGE', desc: 'Restored 1800s logging chute on the Madawaska River. Unique heritage stop.', color: '#9b59b6', dist: '~40 min from Bancroft' },
+  { lat: 45.25, lng: -77.983, icon: '🏞️', title: 'Lake St. Peter Provincial Park', type: 'HIDDEN GEM · QUIET PARK', desc: 'Crystal-clear lake, no motorboats, sandy beaches. Quieter than Algonquin.', color: '#9b59b6', dist: '~30 min north of Bancroft' },
+  { lat: 45.093, lng: -77.862, icon: '💦', title: "L'Amable Dam", type: 'HIDDEN GEM · LOCAL SWIM SPOT', desc: 'Secret local swimming hole. Dock, picnic tables, sandy bottom. Very peaceful.', color: '#9b59b6', dist: 'Near cottage' },
+
+  // Emergency
+  { lat: 45.0631, lng: -77.8534, icon: '🏥', title: 'North Hastings Hospital — Bancroft', type: 'EMERGENCY · ~20 MIN', desc: '145 Hastings St N, Bancroft, ON · Tel: 613-332-2825', color: '#e74c3c', dist: '~20 min from cottage' },
+
+  // Brampton (start)
+  { lat: 43.7315, lng: -79.7624, icon: '🚗', title: 'Brampton — Departure Point', type: 'START · APRIL 17, 2:00 PM', desc: 'Fill up gas tank fully here. Charge all devices to 100%. Download offline maps.', color: '#95a5a6', dist: 'Home base' },
+];
+
+// ── Build map ────────────────────────────────────────────────
+let map;
+
+function initMap() {
+  map = L.map('trip-map', {
+    center: [45.1, -78.4],
+    zoom: 8,
+    zoomControl: true,
+    attributionControl: true
+  });
+
+  // Dark CartoDB tiles
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_matter/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Draw rough route line: Brampton → Lindsay → Bancroft → L'Amable → Algonquin
+  const routeCoords = [
+    [43.7315, -79.7624], // Brampton
+    [44.3498, -78.7373], // Lindsay
+    [44.70,   -78.20],   // Hwy 115 north
+    [45.0567, -77.8558], // Bancroft
+    [45.092,  -77.876],  // L'Amable Lake
+    [45.5333, -78.3667], // Algonquin
+  ];
+
+  const muskokaRoute = [
+    [45.092,  -77.876],  // L'Amable Lake
+    [45.0567, -77.8558], // Bancroft
+    [44.9199, -79.3734], // Gravenhurst
+    [45.0374, -79.3098], // Bracebridge
+    [44.9856, -79.6147], // Bala
+    [43.7315, -79.7624], // Brampton
+  ];
+
+  L.polyline(routeCoords, {
+    color: 'rgba(212,137,26,0.5)',
+    weight: 2.5,
+    dashArray: '6 5',
+    lineCap: 'round'
+  }).addTo(map);
+
+  L.polyline(muskokaRoute, {
+    color: 'rgba(100,160,212,0.4)',
+    weight: 2,
+    dashArray: '6 5',
+    lineCap: 'round'
+  }).addTo(map);
+
+  // Add markers
+  LOCATIONS.forEach(loc => {
+    const markerHtml = `
+      <div style="
+        background:${loc.color};
+        width:34px;height:34px;
+        border-radius:50% 50% 50% 0;
+        transform:rotate(-45deg);
+        border:2px solid rgba(255,255,255,0.25);
+        display:flex;align-items:center;justify-content:center;
+        box-shadow:0 4px 12px rgba(0,0,0,0.5);
+        cursor:pointer;
+      ">
+        <span style="transform:rotate(45deg);font-size:15px;line-height:1;">${loc.icon}</span>
+      </div>`;
+
+    const icon = L.divIcon({
+      html: markerHtml,
+      className: '',
+      iconSize: [34, 34],
+      iconAnchor: [17, 34],
+      popupAnchor: [0, -36]
+    });
+
+    const popupContent = `
+      <div style="padding:4px 2px;">
+        <div style="font-size:1.4rem;margin-bottom:4px;">${loc.icon}</div>
+        <div style="font-family:'Playfair Display',serif;font-size:0.98rem;color:#f5f0e8;font-weight:600;margin-bottom:2px;">${loc.title}</div>
+        <div style="font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#d4891a;margin-bottom:6px;">${loc.type}</div>
+        <div style="font-size:0.78rem;color:#8a9e86;line-height:1.5;max-width:200px;">${loc.desc}</div>
+        ${loc.dist ? `<div style="font-size:0.7rem;color:#d4891a;margin-top:5px;font-weight:500;">📍 ${loc.dist}</div>` : ''}
+      </div>`;
+
+    L.marker([loc.lat, loc.lng], { icon })
+      .addTo(map)
+      .bindPopup(popupContent, { maxWidth: 240, minWidth: 200 });
+  });
+}
+
+// ── Offline tile caching ─────────────────────────────────────
+function getTileUrls(lat1, lng1, lat2, lng2, minZoom, maxZoom) {
+  const urls = [];
+  const subdomains = ['a','b','c','d'];
+  for (let z = minZoom; z <= maxZoom; z++) {
+    const [xMin, yMax] = latLngToTile(Math.min(lat1,lat2), Math.min(lng1,lng2), z);
+    const [xMax, yMin] = latLngToTile(Math.max(lat1,lat2), Math.max(lng1,lng2), z);
+    for (let x = xMin; x <= xMax; x++) {
+      for (let y = yMin; y <= yMax; y++) {
+        const sub = subdomains[(x + y) % 4];
+        urls.push(`https://${sub}.basemaps.cartocdn.com/dark_matter/${z}/${x}/${y}.png`);
+      }
+    }
+  }
+  return urls;
+}
+
+function latLngToTile(lat, lng, zoom) {
+  const n = Math.pow(2, zoom);
+  const x = Math.floor((lng + 180) / 360 * n);
+  const latRad = lat * Math.PI / 180;
+  const y = Math.floor((1 - Math.log(Math.tan(latRad) + 1/Math.cos(latRad)) / Math.PI) / 2 * n);
+  return [x, y];
+}
+
+async function cacheTiles() {
+  const btn = document.getElementById('cacheBtn');
+  const badge = document.getElementById('offlineBadge');
+
+  if (!('serviceWorker' in navigator)) {
+    btn.textContent = '⚠️ Service Worker not supported';
+    btn.disabled = true;
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Calculating tiles...';
+
+  // Bounding box covers entire trip corridor (Brampton → Algonquin → Muskoka)
+  const tiles = getTileUrls(43.5, -80.0, 45.8, -77.5, 6, 12);
+
+  btn.textContent = `⏳ Caching ${tiles.length} tiles...`;
+  badge.textContent = '⟳ Downloading...';
+  badge.classList.remove('inactive');
+
+  try {
+    const reg = await navigator.serviceWorker.ready;
+    reg.active.postMessage({ type: 'CACHE_TILES', tiles });
+
+    navigator.serviceWorker.addEventListener('message', e => {
+      if (e.data && e.data.type === 'CACHE_DONE') {
+        btn.textContent = '✅ Map Cached for Offline';
+        btn.classList.add('success');
+        badge.textContent = '✓ Offline ready';
+        badge.classList.remove('inactive');
+        badge.style.background = 'rgba(80,160,80,0.15)';
+        badge.style.borderColor = 'rgba(100,180,100,0.4)';
+        badge.style.color = '#90d090';
+        btn.disabled = false;
+      }
+    });
+  } catch(err) {
+    btn.textContent = '⚠️ Caching failed — try again';
+    btn.disabled = false;
+  }
+}
+
+// ── Service Worker Registration ──────────────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js', { scope: './' })
+      .then(reg => {
+        console.log('SW registered:', reg.scope);
+        const badge = document.getElementById('offlineBadge');
+        if (badge) {
+          badge.textContent = '● SW active — ready to cache';
+        }
+      })
+      .catch(err => console.log('SW registration failed:', err));
+  });
+}
+
+// Init map when page loads
+document.addEventListener('DOMContentLoaded', initMap);
+</script>
+
+
 </body>
 </html>
