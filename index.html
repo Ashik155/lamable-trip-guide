@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Amable Lake & Algonquin — April 2025 Trip Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     CSS VARIABLES & RESET
+  ============================================================ */
+  :root {
+    --forest-deep: #0e1e0e;
+    --forest-mid: #1a2e1a;
+    --forest-light: #2d4a2d;
+    --forest-muted: #3d5c3a;
+    --amber: #d4891a;
+    --amber-light: #e6a520;
+    --amber-pale: #f0c060;
+    --cream: #f5f0e8;
+    --cream-dark: #e8e0d0;
+    --charcoal: #1c1c1c;
+    --text-light: #c8d4c0;
+    --text-muted: #8a9e86;
+    --white: #ffffff;
+    --danger: #c0392b;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+    --shadow-sm: 0 2px 12px rgba(0,0,0,0.25);
+    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--forest-deep);
+    color: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+  a { color: var(--amber-light); text-decoration: none; }
+  a:hover { color: var(--amber-pale); }
+
+  /* ============================================================
+     NAVIGATION
+  ============================================================ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(14,30,14,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,137,26,0.2);
+    padding: 0 1.5rem;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--amber-light);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .nav-links a {
+    color: var(--text-light);
+    transition: var(--transition);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav-links a:hover {
+    color: var(--amber-light);
+    border-bottom-color: var(--amber-light);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--amber-light);
+    transition: var(--transition);
+  }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 2rem 4rem;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(45,74,45,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(212,137,26,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(45,74,45,0.35) 0%, transparent 55%),
+      linear-gradient(180deg, #030a03 0%, #0e1e0e 40%, #0a1a0a 100%);
+  }
+
+  .hero-stars {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 22%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 18%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 10%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 30%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 8% 40%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 60% 12%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 35%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 45%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 45% 48%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 52%, rgba(255,255,255,0.5) 0%, transparent 100%);
+  }
+
+  /* Tree silhouette strip */
+  .hero-trees {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 200px;
+    background:
+      linear-gradient(to top, #030a03 30%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    border: 1px solid rgba(212,137,26,0.4);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    background: rgba(212,137,26,0.08);
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero h1 span {
+    color: var(--amber-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin: 1.2rem 0 2.5rem;
+    letter-spacing: 0.01em;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.9s 0.3s ease both;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+
+  .hero-meta-item .icon {
+    font-size: 1.1rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    background: var(--amber);
+    color: var(--charcoal);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    border-radius: 100px;
+    transition: var(--transition);
+    animation: fadeUp 0.9s 0.4s ease both;
+  }
+
+  .hero-cta:hover {
+    background: var(--amber-pale);
+    color: var(--charcoal);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212,137,26,0.35);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============================================================
+     WEATHER BANNER
+  ============================================================ */
+  .weather-banner {
+    background: linear-gradient(135deg, rgba(212,137,26,0.15), rgba(212,137,26,0.06));
+    border: 1px solid rgba(212,137,26,0.3);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.88rem;
+    color: var(--amber-pale);
+    font-weight: 500;
+  }
+
+  .weather-banner .wb-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+  /* ============================================================
+     SECTION COMMON
+  ============================================================ */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    margin: 1rem 0 2.5rem;
+  }
+
+  /* ============================================================
+     OVERVIEW CARDS
+  ============================================================ */
+  #overview { background: transparent; }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .day-card {
+    background: linear-gradient(145deg, rgba(45,74,45,0.4), rgba(26,46,26,0.6));
+    border: 1px solid rgba(45,74,45,0.5);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: default;
+  }
+
+  .day-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--amber), var(--amber-pale));
+  }
+
+  .day-card:hover {
+    border-color: rgba(212,137,26,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+
+  .day-card-num {
+    font-size: 4rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    color: rgba(212,137,26,0.12);
+    line-height: 1;
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+  }
+
+  .day-card-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+  }
+
+  .day-card h3 {
+    font-size: 1.35rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .day-card-route {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .day-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+    background: rgba(212,137,26,0.12);
+    border: 1px solid rgba(212,137,26,0.25);
+    color: var(--amber-pale);
+  }
+
+  .tag.green {
+    background: rgba(45,74,45,0.5);
+    border-color: rgba(100,160,90,0.3);
+    color: #a8d4a0;
+  }
+
+  /* ============================================================
+     TIMELINE / ITINERARY
+  ============================================================ */
+  #itinerary { background: transparent; }
+
+  .day-section {
+    margin-bottom: 4rem;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(45,74,45,0.4);
+  }
+
+  .day-circle {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--amber), #b8740f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(212,137,26,0.35);
+  }
+
+  .day-header-text h3 {
+    font-size: 1.4rem;
+    color: var(--cream);
+  }
+
+  .day-header-text span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--amber), rgba(212,137,26,0.1));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.8rem;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -1.45rem;
+    top: 0.45rem;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--amber);
+    border: 2px solid var(--forest-deep);
+    box-shadow: 0 0 0 3px rgba(212,137,26,0.2);
+  }
+
+  .timeline-dot.special {
+    background: var(--amber-pale);
+    box-shadow: 0 0 0 4px rgba(230,165,32,0.25);
+  }
+
+  .timeline-time {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .timeline-desc ul {
+    margin: 0.4rem 0 0 1rem;
+    list-style: disc;
+  }
+
+  .timeline-desc ul li {
+    margin-bottom: 0.15rem;
+  }
+
+  .special-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    background: rgba(212,137,26,0.1);
+    border: 1px solid rgba(212,137,26,0.25);
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.78rem;
+    color: var(--amber-pale);
+  }
+
+  /* ============================================================
+     ATTRACTIONS GRID
+  ============================================================ */
+  .attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .attraction-card {
+    background: rgba(26,46,26,0.5);
+    border: 1px solid rgba(45,74,45,0.4);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .attraction-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+  }
+
+  .attraction-card:hover {
+    border-color: rgba(212,137,26,0.3);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .attraction-card:hover::after { transform: scaleX(1); }
+
+  .attraction-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .attraction-card h4 {
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .attraction-dist {
+    font-size: 0.7rem;
+    color: var(--amber);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .attraction-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     HIDDEN GEMS
+  ============================================================ */
+  .hidden-gems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gem-card {
+    background: linear-gradient(145deg, rgba(20,38,20,0.8), rgba(14,26,14,0.9));
+    border: 1px solid rgba(212,137,26,0.2);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .gem-card::before {
+    content: '✦ HIDDEN GEM';
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--amber);
+    opacity: 0.7;
+  }
+
+  .gem-card:hover {
+    border-color: rgba(212,137,26,0.45);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  }
+
+  .gem-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+
+  .gem-card h4 {
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 0.2rem;
+  }
+
+  .gem-dist {
+    font-size: 0.7rem;
+    color: var(--amber);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .gem-card p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .gem-tip {
+    margin-top: 0.8rem;
+    padding: 0.5rem 0.8rem;
+    background: rgba(212,137,26,0.08);
+    border-left: 2px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    font-size: 0.76rem;
+    color: var(--amber-pale);
+    font-style: italic;
+  }
+
+  /* ============================================================
+     ACTIVITIES
+  ============================================================ */
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .activity-category {
+    background: rgba(26,46,26,0.4);
+    border: 1px solid rgba(45,74,45,0.4);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+  }
+
+  .activity-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .activity-category-header .cat-icon {
+    font-size: 1.8rem;
+  }
+
+  .activity-category-header h3 {
+    font-size: 1.1rem;
+    color: var(--cream);
+  }
+
+  .activity-list {
+    list-style: none;
+  }
+
+  .activity-list li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(45,74,45,0.3);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .activity-list li:last-child { border: none; }
+  .activity-list li::before {
+    content: '→';
+    color: var(--amber);
+    font-size: 0.75rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
+     PACKING LIST
+  ============================================================ */
+  .packing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pack-category {
+    background: rgba(26,46,26,0.4);
+    border: 1px solid rgba(45,74,45,0.4);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+  }
+
+  .pack-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(45,74,45,0.4);
+  }
+
+  .pack-category-header .pack-icon { font-size: 1.4rem; }
+
+  .pack-category-header h3 {
+    font-size: 0.95rem;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  .pack-items { list-style: none; }
+
+  .pack-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.4rem 0;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: 6px;
+  }
+
+  .pack-item:hover { background: rgba(212,137,26,0.05); padding-left: 0.3rem; }
+
+  .pack-item input[type="checkbox"] {
+    appearance: none;
+    width: 16px; height: 16px;
+    border: 1.5px solid rgba(212,137,26,0.4);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    background: transparent;
+  }
+
+  .pack-item input[type="checkbox"]:checked {
+    background: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .pack-item input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -1px; left: 2px;
+    font-size: 10px;
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+
+  .pack-item label {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+    line-height: 1.5;
+  }
+
+  .pack-item input:checked + label {
+    text-decoration: line-through;
+    color: rgba(138,158,134,0.4);
+  }
+
+  .pack-progress {
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+
+  .pack-progress-bar-wrap {
+    height: 6px;
+    background: rgba(45,74,45,0.4);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+  }
+
+  .pack-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber), var(--amber-pale));
+    border-radius: 100px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .pack-progress-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .pack-progress-label span:last-child { color: var(--amber); font-weight: 600; }
+
+  .reset-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    background: transparent;
+    border: 1px solid rgba(212,137,26,0.25);
+    color: var(--amber);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+  }
+
+  .reset-btn:hover {
+    background: rgba(212,137,26,0.1);
+    border-color: var(--amber);
+  }
+
+  /* ============================================================
+     ANIMAL SAFETY ACCORDION
+  ============================================================ */
+  .accordion { display: flex; flex-direction: column; gap: 0.8rem; }
+
+  .accordion-item {
+    background: rgba(26,46,26,0.5);
+    border: 1px solid rgba(45,74,45,0.4);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .accordion-item:hover { border-color: rgba(212,137,26,0.25); }
+
+  .accordion-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .accordion-btn-left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .accordion-btn .animal-icon { font-size: 1.5rem; }
+
+  .accordion-chevron {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: var(--amber);
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 1.5rem;
+  }
+
+  .accordion-item.open .accordion-body {
+    max-height: 600px;
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .accordion-body ul { list-style: none; }
+
+  .accordion-body ul li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(45,74,45,0.2);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .accordion-body ul li:last-child { border: none; }
+  .accordion-body ul li::before {
+    content: '⚠';
+    font-size: 0.72rem;
+    color: var(--amber);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .threat-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.6rem;
+    border-radius: 100px;
+    background: rgba(192,57,43,0.2);
+    border: 1px solid rgba(192,57,43,0.4);
+    color: #e88;
+    margin-left: 0.5rem;
+  }
+
+  /* ============================================================
+     CAR SAFETY
+  ============================================================ */
+  .car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .car-checklist {
+    background: rgba(26,46,26,0.4);
+    border: 1px solid rgba(45,74,45,0.4);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+  }
+
+  .car-checklist h4 {
+    font-size: 0.85rem;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(45,74,45,0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* ============================================================
+     EMERGENCY BOX
+  ============================================================ */
+  .emergency-box {
+    background: linear-gradient(135deg, rgba(192,57,43,0.15), rgba(120,30,20,0.15));
+    border: 1px solid rgba(192,57,43,0.4);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    margin-top: 3rem;
+  }
+
+  .emergency-box .section-label { color: #e88; }
+  .emergency-box .section-title { font-size: 1.5rem; }
+
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .contact-item {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(192,57,43,0.25);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+  }
+
+  .contact-item .c-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e88;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-item .c-name {
+    font-size: 0.9rem;
+    color: var(--cream);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-item .c-num {
+    font-size: 1.05rem;
+    color: #ff9999;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    font-family: 'Inter', monospace;
+  }
+
+  .hospital-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.4rem;
+    background: rgba(192,57,43,0.1);
+    border-left: 3px solid rgba(192,57,43,0.5);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.85rem;
+    color: #e8aaaa;
+  }
+
+  /* ============================================================
+     SAFETY CHECKLIST
+  ============================================================ */
+  .safety-check-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .safety-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    background: rgba(26,46,26,0.4);
+    border: 1px solid rgba(45,74,45,0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .safety-check-item:hover { border-color: rgba(212,137,26,0.3); }
+
+  .safety-check-item input[type="checkbox"] {
+    appearance: none;
+    width: 18px; height: 18px;
+    border: 1.5px solid rgba(212,137,26,0.4);
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    background: transparent;
+    margin-top: 1px;
+  }
+
+  .safety-check-item input:checked {
+    background: var(--amber);
+    border-color: var(--amber);
+  }
+
+  .safety-check-item input:checked::after {
+    content: '✓';
+    position: absolute;
+    top: -1px; left: 2px;
+    font-size: 11px;
+    color: var(--charcoal);
+    font-weight: 700;
+  }
+
+  .safety-check-item label {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .safety-check-item input:checked + label {
+    text-decoration: line-through;
+    color: rgba(138,158,134,0.4);
+  }
+
+  /* ============================================================
+     PRO TIPS FOOTER
+  ============================================================ */
+  .tips-section {
+    background: linear-gradient(180deg, transparent, rgba(26,46,26,0.3));
+    border-top: 1px solid rgba(45,74,45,0.3);
+    padding: 4rem 2rem 6rem;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+  }
+
+  .tip-card {
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(45,74,45,0.3);
+    background: rgba(26,46,26,0.3);
+  }
+
+  .tip-card .tip-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(212,137,26,0.2);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .tip-card h4 {
+    font-size: 0.95rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .tip-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(45,74,45,0.3);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  footer span { color: var(--amber); }
+
+  /* ============================================================
+     SECTION WRAPPER (full-width bg strips)
+  ============================================================ */
+  .section-wrap {
+    width: 100%;
+  }
+
+  .section-wrap.alt {
+    background: rgba(26,46,26,0.15);
+  }
+
+  .section-wrap.dark {
+    background: rgba(14,26,14,0.5);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 900px) {
+    .overview-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 58px; left: 0; right: 0;
+      background: rgba(14,30,14,0.98);
+      padding: 1.5rem;
+      gap: 1rem;
+      z-index: 999;
+      border-bottom: 1px solid rgba(212,137,26,0.2);
+    }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 3.5rem 1.2rem; }
+    .hero { padding: 5rem 1.2rem 3rem; }
+    .contacts-grid { grid-template-columns: 1fr 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     PRINT STYLES
+  ============================================================ */
+  @media print {
+    nav, .hero-cta { display: none !important; }
+    body { background: white !important; color: #1a1a1a !important; }
+    section { padding: 1.5rem 0 !important; }
+    .day-card, .attraction-card, .gem-card, .accordion-item,
+    .pack-category, .car-checklist, .activity-category {
+      border: 1px solid #ccc !important;
+      background: white !important;
+      break-inside: avoid;
+    }
+    .hero { min-height: auto !important; padding: 2rem 0 !important; }
+    .hero-bg, .hero-stars, .hero-trees { display: none !important; }
+    h1,h2,h3,h4 { color: #1a1a1a !important; }
+    .section-title { color: #1a1a1a !important; }
+    p, li, label { color: #444 !important; }
+    .accordion-body { max-height: none !important; display: block !important; padding: 0 1rem 1rem !important; }
+    .emergency-box { border: 2px solid #c0392b !important; background: #fff5f5 !important; }
+    .weather-banner { background: #fff8e6 !important; border: 1px solid #d4891a !important; }
+    * { box-shadow: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">🌲 L'Amable Lake — Apr 2025</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#itinerary">Itinerary</a></li>
+      <li><a href="#attractions">Attractions</a></li>
+      <li><a href="#hidden">Hidden Gems</a></li>
+      <li><a href="#packing">Packing</a></li>
+      <li><a href="#safety">Safety</a></li>
+      <li><a href="#emergency">Emergency</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-trees"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ Private Trip Concierge Guide ✦</div>
+    <h1>L'Amable Lake<br>&amp; <span>Algonquin</span></h1>
+    <p class="hero-sub">A 3-day Ontario wilderness escape — cottage, canoe, and constellations</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="icon">📅</span> April 17–19, 2025</div>
+      <div class="hero-meta-item"><span class="icon">👥</span> 2 Travellers</div>
+      <div class="hero-meta-item"><span class="icon">🚗</span> Departing Brampton, ON</div>
+      <div class="hero-meta-item"><span class="icon">🏕️</span> Off-Grid Cottage</div>
+    </div>
+    <a href="#overview" class="hero-cta">View Full Itinerary ↓</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     WEATHER BANNER
+============================================================ -->
+<div style="padding: 0 2rem; max-width:1240px; margin: 0 auto;">
+  <div class="weather-banner">
+    <span class="wb-icon">🌦️</span>
+    <div>
+      <strong>Weather Watch:</strong> Check forecasts 24 hrs before each day — April in Ontario can bring rain, frost, sunshine, and everything between. North Hastings temperatures may drop to 2–6°C overnight. Pack layers, always.
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     OVERVIEW
+============================================================ -->
+<div class="section-wrap" id="overview">
+<section>
+  <span class="section-label">Trip at a Glance</span>
+  <h2 class="section-title">Three Days in the Wild</h2>
+  <div class="divider"></div>
+  <div class="overview-grid">
+
+    <div class="day-card">
+      <div class="day-card-num">01</div>
+      <div class="day-card-label">Thursday, April 17</div>
+      <h3>Drive North 🚗</h3>
+      <p class="day-card-route">Brampton → Hwy 400 → Hwy 115 → CR 620 → L'Amable Lake</p>
+      <div class="day-card-tags">
+        <span class="tag">2 PM Departure</span>
+        <span class="tag">~3.5 hr Drive</span>
+        <span class="tag green">Milky Way Night</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-card-num">02</div>
+      <div class="day-card-label">Friday, April 18</div>
+      <h3>Algonquin Day Trip 🌲</h3>
+      <p class="day-card-route">Cottage → Algonquin Provincial Park (~45 min)</p>
+      <div class="day-card-tags">
+        <span class="tag">Hiking Trails</span>
+        <span class="tag">Wildlife Spotting</span>
+        <span class="tag green">Canoe Rentals</span>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-card-num">03</div>
+      <div class="day-card-label">Saturday, April 19</div>
+      <h3>Muskoka & Home 🏘️</h3>
+      <p class="day-card-route">L'Amable Lake → Muskoka → Bracebridge → Brampton</p>
+      <div class="day-card-tags">
+        <span class="tag">Muskoka Wharf</span>
+        <span class="tag">Town Walks</span>
+        <span class="tag green">Scenic Drive</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     ITINERARY
+============================================================ -->
+<div class="section-wrap alt" id="itinerary">
+<section>
+  <span class="section-label">Day by Day</span>
+  <h2 class="section-title">Full Itinerary</h2>
+  <div class="divider"></div>
+
+  <!-- DAY 1 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-circle">1</div>
+      <div class="day-header-text">
+        <h3>Thursday — The Road North</h3>
+        <span>Brampton → L'Amable Lake Cottage</span>
+      </div>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-title">🚗 Depart Brampton</div>
+        <div class="timeline-desc">
+          Fill up the gas tank fully before leaving — stations thin out past Bancroft. Download offline maps before you go. Route: Hwy 400 N → Hwy 115 → County Road 620 toward the Bancroft area.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~3:00 PM (1 hr in)</div>
+        <div class="timeline-title">☕ Stop 1 — Coffee &amp; Washroom</div>
+        <div class="timeline-desc">
+          Pull off around Lindsay or Minden area. Tim Hortons, a gas station, or a local café. Stretch, refuel, and reset.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~4:00–4:30 PM (2 hr in)</div>
+        <div class="timeline-title">☕ Stop 2 — Near Bancroft / Maynooth</div>
+        <div class="timeline-desc">
+          Second coffee and washroom break. Check out the <strong>Fudge Factory in Maynooth</strong> if it's open — a beloved local roadside stop. Grab any last-minute groceries here (fewer options further on).
+          <div class="special-note">🧀 Insider: Maynooth's Fudge Factory &amp; Emporium is a quirky gem worth the 3-min detour</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~5:30–6:00 PM</div>
+        <div class="timeline-title">🏡 Arrive at Cottage — L'Amable Lake</div>
+        <div class="timeline-desc">
+          Settle in, unload gear. No power supply — set up lanterns, charge banks, and get oriented before dusk.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot special"></div>
+        <div class="timeline-time">Evening</div>
+        <div class="timeline-title">🍳 Dinner + Lakefront Exploration</div>
+        <div class="timeline-desc">
+          Cook dinner on the camp stove. After sunset: head to the dock or an open field.
+          <div class="special-note">🌌 The Milky Way is visible here. Zero light pollution. Bring the red-light headlamp and a blanket — it's worth staying out until midnight.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-circle">2</div>
+      <div class="day-header-text">
+        <h3>Friday — Into Algonquin</h3>
+        <span>Cottage → Algonquin Provincial Park Day Trip</span>
+      </div>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">7:00–8:00 AM</div>
+        <div class="timeline-title">🌅 Early Breakfast at Cottage</div>
+        <div class="timeline-desc">
+          Listen for loon calls at dawn on the lake — one of the most iconic Ontario wilderness sounds. Pack a day bag: water, snacks, first aid, layers, camera, binoculars.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~8:30 AM</div>
+        <div class="timeline-title">🚗 Drive to Algonquin (~45 min)</div>
+        <div class="timeline-desc">
+          Pay day-use permit at the gate. Pick up a park map at the gate station.
+          <div class="special-note">🎟️ Day use permit: ~$20 CAD/vehicle. Have cash or credit ready.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">9:30 AM – 2:00 PM</div>
+        <div class="timeline-title">🥾 Hiking Trails — Choose Your Adventure</div>
+        <div class="timeline-desc">
+          <ul>
+            <li><strong>Lookout Trail</strong> — 1.9 km loop, rewarding cliff views. Beginner-friendly.</li>
+            <li><strong>Track and Tower Trail</strong> — 7.7 km loop, diverse terrain, forest and lookout.</li>
+            <li><strong>Centennial Ridges Trail</strong> — 19 km, serious hikers only. Two dramatic ridgelines.</li>
+          </ul>
+          🦌 Wildlife common in April: moose (especially near water edges at dawn/dusk), beaver, white-tailed deer, loon, mergansers returning for spring. Be bear-aware.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">Afternoon</div>
+        <div class="timeline-title">🛶 Optional: Canoe Rental</div>
+        <div class="timeline-desc">
+          Check Algonquin outfitters (Portage Store at Canoe Lake) for canoe rentals. Early April may have limited availability — call ahead. Calm lakes are stunning in the morning light.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">Afternoon</div>
+        <div class="timeline-title">🏛️ Visitor Centre + Art Centre</div>
+        <div class="timeline-desc">
+          The Algonquin Visitor Centre has excellent natural history exhibits and a bookstore. The Algonquin Art Centre (2–3 km inside the park) has gallery shows featuring wilderness art — often free entry.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot special"></div>
+        <div class="timeline-time">Evening</div>
+        <div class="timeline-title">🔥 Campfire Night — Lakefront</div>
+        <div class="timeline-desc">
+          Return to cottage by evening. Light the campfire. Stars again tonight — same dark sky, same magic.
+          <div class="special-note">🌠 Pro: On moonless nights, point Stellarium south — the core of the Milky Way rises in Sagittarius after 11 PM in April.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-circle">3</div>
+      <div class="day-header-text">
+        <h3>Saturday — Muskoka &amp; Home</h3>
+        <span>L'Amable Lake → Muskoka Region → Brampton</span>
+      </div>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">7:30–9:00 AM</div>
+        <div class="timeline-title">🌄 Sunrise Walk + Final Breakfast</div>
+        <div class="timeline-desc">
+          Last morning on the lake. Catch the sunrise from the dock if you can. Pack up fully. Leave the cottage clean.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~9:30 AM</div>
+        <div class="timeline-title">🚗 Drive to Muskoka Region (~1.5–2 hrs)</div>
+        <div class="timeline-desc">
+          Head southwest toward Gravenhurst or Bracebridge via Hwy 62 S and Hwy 11.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~11:30 AM</div>
+        <div class="timeline-title">⚓ Muskoka Wharf — Gravenhurst</div>
+        <div class="timeline-desc">
+          Lakeside promenade with shops, cafes, and views over Lake Muskoka. The RMS Segwun steamship is docked here. Great for photos and a coffee stop.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">~12:30–1:30 PM</div>
+        <div class="timeline-title">💧 Bracebridge Falls</div>
+        <div class="timeline-desc">
+          A quick stop for a dramatic urban waterfall in downtown Bracebridge. Walk the riverside trail for different vantage points. Free parking nearby.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-time">Optional</div>
+        <div class="timeline-title">🍁 Bala, ON — Scenic Village</div>
+        <div class="timeline-desc">
+          ~20 min from Bracebridge. A gorgeous small village where two rivers meet, surrounded by Muskoka's rocky landscape. Known for cranberries. Very photogenic.
+          <div class="special-note">📍 Note for next time: Torrance Barrens Dark Sky Preserve is 15 min from Bala — worth a dedicated night visit in summer.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot special"></div>
+        <div class="timeline-time">~3:00–4:00 PM</div>
+        <div class="timeline-title">🏠 Depart Muskoka → Brampton</div>
+        <div class="timeline-desc">
+          Return via Hwy 11 S → Hwy 400 S. Approximately 2 hrs depending on traffic. Arrive home around 5–6 PM.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+</div>
+
+<!-- ============================================================
+     NEARBY ATTRACTIONS
+============================================================ -->
+<div class="section-wrap" id="attractions">
+<section>
+  <span class="section-label">Within Reach</span>
+  <h2 class="section-title">Nearby Attractions</h2>
+  <p class="section-desc">All within 1–2 hours of L'Amable Lake cottage base.</p>
+  <div class="divider"></div>
+  <div class="attractions-grid">
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🌲</div>
+      <h4>Algonquin Provincial Park</h4>
+      <div class="attraction-dist">~45 min away</div>
+      <p>Ontario's iconic wilderness park. World-class hiking, canoeing, moose spotting, and fall (and spring!) colours.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">💎</div>
+      <h4>Bancroft Mineral Sites</h4>
+      <div class="attraction-dist">~20 min away</div>
+      <p>"Mineral Capital of Canada." Rock hound collecting sites, the Mineral Museum, and specialty rock shops.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🌊</div>
+      <h4>Silent Lake Provincial Park</h4>
+      <div class="attraction-dist">~30 min away</div>
+      <p>Motor-free lake ideal for flat-water paddling. Beautiful 15 km lakeshore trail. Quieter than Algonquin.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🌄</div>
+      <h4>Haliburton Highlands</h4>
+      <div class="attraction-dist">~1 hr away</div>
+      <p>Rolling Canadian Shield scenery, arts culture, sculpture forest. A detour worth making.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🪨</div>
+      <h4>Kawartha Highlands Signature Site</h4>
+      <div class="attraction-dist">~1 hr away</div>
+      <p>Remote backcountry wilderness park with canoe routes and pristine Shield lakes. Minimal development.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🏔️</div>
+      <h4>Bon Echo Provincial Park</h4>
+      <div class="attraction-dist">~1.5 hrs away</div>
+      <p>Dramatic 100-metre granite cliff rising from Mazinaw Lake. Legendary rock face with Indigenous pictographs.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🌙</div>
+      <h4>Torrance Barrens Dark Sky</h4>
+      <div class="attraction-dist">~2 hrs away (Muskoka)</div>
+      <p>Ontario's first designated Dark Sky Preserve. Open granite barrens with virtually no light pollution. Best in summer.</p>
+    </div>
+
+    <div class="attraction-card">
+      <div class="attraction-icon">🏘️</div>
+      <h4>Marmora &amp; Lake Village</h4>
+      <div class="attraction-dist">~45 min away</div>
+      <p>Charming heritage town with the Big Ore Pit nearby — an open-pit mine turned swimming hole and viewpoint.</p>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     HIDDEN GEMS (RESEARCHED)
+============================================================ -->
+<div class="section-wrap dark" id="hidden">
+<section>
+  <span class="section-label">Off the Beaten Path</span>
+  <h2 class="section-title">Hidden Gems &amp; Secret Spots</h2>
+  <p class="section-desc">Lesser-known discoveries most visitors miss — curated from local knowledge. Bring a sense of adventure.</p>
+  <div class="divider"></div>
+  <div class="hidden-gems-grid">
+
+    <div class="gem-card">
+      <span class="gem-icon">🌊</span>
+      <h4>Egan Chutes Provincial Park</h4>
+      <div class="gem-dist">📍 ~20 min east of Bancroft · Hwy 28 E</div>
+      <p>A non-operating, unsigned, fee-free provincial park that most people drive right past. Three dramatic waterfalls cascade through a York River gorge — raw, unfenced, and completely wild. Two trail sides to choose from: short west trail (~1 km to the main chute) or the longer east trail to all three falls. No facilities, no crowds, no guardrails. Pure wilderness.</p>
+      <div class="gem-tip">💡 Local tip: No signage at the entrance. Take Hwy 28 east from Bancroft, cross the York River bridge, turn around and look for a narrow gravel road heading north just west of the bridge. You'll see a faded "Provincial Park Boundary" sign on a tree.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🦅</span>
+      <h4>Eagle's Nest Lookout &amp; Hawkwatch Trail</h4>
+      <div class="gem-dist">📍 Bancroft · Eagle's Nest Park</div>
+      <p>A short but rewarding hike on the Hawkwatch Trail leads to a wooden platform perched atop a sheer rock face. Panoramic views over the York River Valley, the town of Bancroft, and forested ridges in every direction. In April, this is a prime hawk and eagle migration watch site. Often quiet, often empty. Locals call it the best free view in Hastings County.</p>
+      <div class="gem-tip">💡 April is peak raptor migration. Bring binoculars and sit for 20 minutes — you'll likely spot broad-winged hawks, osprey, or bald eagles riding thermals.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🏞️</span>
+      <h4>Lake St. Peter Provincial Park</h4>
+      <div class="gem-dist">📍 ~30 min north of Bancroft</div>
+      <p>One of Ontario's quietest and most underrated parks. A crystal-clear, calm lake with sandy waterfront campsites. No motorboats allowed — perfect for paddling. In April it's almost completely empty. A loon was once spotted nesting lakeside by a kayaker here in early spring. Two sandy beaches that are surprisingly pristine even in peak summer — imagine them in April.</p>
+      <div class="gem-tip">💡 No need to book camping if you're just day-using. Pack a kayak if you can — the stillness on this lake in early morning is unlike anything in the region.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🪵</span>
+      <h4>Crooked Slide Park — Combermere</h4>
+      <div class="gem-dist">📍 ~40 min from Bancroft · Madawaska River</div>
+      <p>A completely unexpected find: a restored 19th-century logging chute turned into a heritage park along the Madawaska River. The wooden chute (used to float logs downstream) has been rebuilt for visitors to explore, with interpretive signs about the logging history of the Ottawa Valley. The village of Combermere itself is a hidden gem — blink and you'll miss it, but it has excellent riverside views and local restaurants worth stopping for.</p>
+      <div class="gem-tip">💡 The Madawaska River here is also a whitewater kayaking hotspot. You might see paddlers running the rapids in spring melt.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">💦</span>
+      <h4>L'Amable Dam — Local Swimming Hole</h4>
+      <div class="gem-dist">📍 Old L'Amable Road, Bancroft</div>
+      <p>A secret local favourite you won't find on tourist brochures. The L'Amable Dam sits on a quiet side road and has a dock for swimming, picnic tables, and a small beach. Shallow, sandy water and a relaxed, community atmosphere. No lifeguard, no fees, no crowds. If you're near Bancroft on a warm day and want a swim, this is where locals go.</p>
+      <div class="gem-tip">💡 April water will be very cold — but the dock and surrounding area make for a peaceful picnic stop or photography spot in early spring light.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🏖️</span>
+      <h4>Papineau Public Beach</h4>
+      <div class="gem-dist">📍 ~30 min NE of Bancroft · Papineau Lake</div>
+      <p>Called "a local gem" by those who know it — a clean, shallow, sandy beach on the southeast shore of Papineau Lake. The sandy bottom stretches out for a long way, perfect for wading. Very pet-friendly (dogs welcome). No facilities beyond pit toilets, which keeps crowds minimal. The lake itself is scenic and undeveloped.</p>
+      <div class="gem-tip">💡 This is one of the most peaceful beaches in the region precisely because it's not promoted. Arrive early on weekends if visiting in summer.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🚂</span>
+      <h4>Hastings Heritage Trail</h4>
+      <div class="gem-dist">📍 Glen Ross to Lake St. Peter · 156 km</div>
+      <p>Built on the old Irondale, Bancroft &amp; Ottawa Railway bed, this trail passes through Bancroft along lazy creeks, rushing rivers, and rugged Shield terrain. Sections near Bancroft are flat and accessible — you can walk or cycle a short stretch without needing the full 156 km. The old rail cuts make for fascinating walking, passing through rock cuts and over small bridges. History embedded in every kilometre.</p>
+      <div class="gem-tip">💡 The trail passes right through Bancroft town. Even a 30-minute walk on the section near Millennium Park gives you a feel for the railway history and the river valley below.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">💎</span>
+      <h4>Princess Sodalite Mine Rock Shop</h4>
+      <div class="gem-dist">📍 Hwy 28, near Bancroft</div>
+      <p>A working sodalite mine that sells minerals directly to visitors. Sodalite is a striking blue-purple semi-precious stone found almost exclusively in this region. You can browse and buy raw specimens, polished pieces, and geological curiosities. Unlike touristy gem shops, this is an actual mine with actual stones pulled from the ground nearby. A genuinely unique stop.</p>
+      <div class="gem-tip">💡 Sodalite is extremely local to the Bancroft area — this is one of very few places in the world where it occurs in large quantities. A small specimen makes a memorable keepsake.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🍺</span>
+      <h4>Bancroft Brewing Co.</h4>
+      <div class="gem-dist">📍 Downtown Bancroft</div>
+      <p>A small-batch craft brewery in the heart of downtown Bancroft, consistently praised for quality beers and a warm, unpretentious atmosphere. Excellent service even when busy. Inexpensive by city standards. A perfect stop on your way into town on Thursday or as a Friday wind-down after Algonquin. Pairs well with a walk along the York River afterward.</p>
+      <div class="gem-tip">💡 Call ahead to check hours — small breweries sometimes close mid-week in shoulder season. This one is worth planning around.</div>
+    </div>
+
+    <div class="gem-card">
+      <span class="gem-icon">🍽️</span>
+      <h4>28 North Bar &amp; Lounge</h4>
+      <div class="gem-dist">📍 Paudash Lake, Bancroft area</div>
+      <p>A farm-to-table restaurant with a stunning lakeside backdrop overlooking Paudash Lake. Uses local, seasonal ingredients and is known for house-made dishes with craft cocktails and specialty coffees. One of the most elevated dining experiences in the Bancroft region — feels out of place in the best way. Perfect for a Saturday dinner before heading south.</p>
+      <div class="gem-tip">💡 Signature items: homemade butter tart with salted caramel, Mimosa Flight, housemade chili. Reservations recommended on weekends.</div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     ACTIVITIES
+============================================================ -->
+<div class="section-wrap" id="activities">
+<section>
+  <span class="section-label">What To Do</span>
+  <h2 class="section-title">Activities by Interest</h2>
+  <div class="divider"></div>
+  <div class="activities-grid">
+
+    <div class="activity-category">
+      <div class="activity-category-header">
+        <span class="cat-icon">🌊</span>
+        <h3>Water &amp; Paddling</h3>
+      </div>
+      <ul class="activity-list">
+        <li>Kayaking or canoeing on L'Amable Lake at sunrise</li>
+        <li>Silent Lake flat-water paddling (motor-free)</li>
+        <li>Algonquin lake canoe routes from outfitters</li>
+        <li>Muskoka lake scenic boat tours or dock walks</li>
+        <li>Swimming at L'Amable Dam or Papineau Beach</li>
+        <li>Fishing — bass, trout, and pike in area lakes</li>
+      </ul>
+    </div>
+
+    <div class="activity-category">
+      <div class="activity-category-header">
+        <span class="cat-icon">🌌</span>
+        <h3>Night Sky Gazing</h3>
+      </div>
+      <ul class="activity-list">
+        <li>L'Amable Lake — Milky Way visible (minimal light pollution)</li>
+        <li>Torrance Barrens — Designated Ontario Dark Sky Preserve</li>
+        <li>Download Stellarium or SkySafari offline before leaving</li>
+        <li>Red-light headlamp preserves night vision for 20+ min</li>
+        <li>April sky: Jupiter rising in east, look for Leo &amp; Virgo</li>
+        <li>Blanket on the dock — lie flat, look straight up</li>
+      </ul>
+    </div>
+
+    <div class="activity-category">
+      <div class="activity-category-header">
+        <span class="cat-icon">🥾</span>
+        <h3>Hiking &amp; Trails</h3>
+      </div>
+      <ul class="activity-list">
+        <li>Algonquin Lookout Trail — short, epic views (1.9 km)</li>
+        <li>Track and Tower Trail — forest &amp; lookout (7.7 km)</li>
+        <li>Centennial Ridges — serious hike, two ridgelines (19 km)</li>
+        <li>Silent Lake Lakeshore Trail — 15 km loop</li>
+        <li>Eagle's Nest Hawkwatch Trail — short, panoramic</li>
+        <li>Egan Chutes forest trail to waterfalls (1–8 km)</li>
+      </ul>
+    </div>
+
+    <div class="activity-category">
+      <div class="activity-category-header">
+        <span class="cat-icon">🦌</span>
+        <h3>Wildlife Spotting</h3>
+      </div>
+      <ul class="activity-list">
+        <li>Moose near water edges in Algonquin at dawn &amp; dusk</li>
+        <li>Common Loon calls at dawn on cottage lake</li>
+        <li>Bald eagle &amp; osprey at Eagle's Nest (April migration)</li>
+        <li>Beaver lodges visible on Algonquin canoe routes</li>
+        <li>White-tailed deer on roadsides at dusk</li>
+        <li>Broad-winged hawk migration in April</li>
+      </ul>
+    </div>
+
+    <div class="activity-category">
+      <div class="activity-category-header">
+        <span class="cat-icon">🪨</span>
+        <h3>Unique Experiences</h3>
+      </div>
+      <ul class="activity-list">
+        <li>Mineral &amp; gem collecting near Bancroft (rock sites)</li>
+        <li>Sodalite mine shop — buy a piece of local geology</li>
+        <li>Campfire cooking at the cottage</li>
+        <li>Crooked Slide heritage logging chute, Combermere</li>
+        <li>Geocaching on Bancroft trails (GPS treasure hunt)</li>
+        <li>Photography — Shield rock, reflections, wildflowers</li>
+      </ul>
+    </div>
+
+    <div class="activity-category">
+      <div class="activity-category-header">
+        <span class="cat-icon">📸</span>
+        <h3>Photography Spots</h3>
+      </div>
+      <ul class="activity-list">
+        <li>L'Amable Lake sunrise from the dock (golden hour)</li>
+        <li>Egan Chutes — mossy rocks, rushing water, spring melt</li>
+        <li>Eagle's Nest — wide landscape panorama</li>
+        <li>Algonquin canoe reflections on calm morning water</li>
+        <li>Muskoka Wharf — boats, docks, heritage steam ship</li>
+        <li>Milky Way over cottage lake (long exposure, tripod needed)</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     PACKING LIST
+============================================================ -->
+<div class="section-wrap alt" id="packing">
+<section>
+  <span class="section-label">Don't Leave Without</span>
+  <h2 class="section-title">Complete Packing List</h2>
+  <p class="section-desc">Tap each item to mark it packed. Progress saves automatically.</p>
+  <div class="divider"></div>
+
+  <div class="pack-progress">
+    <div class="pack-progress-label">
+      <span>Packing Progress</span>
+      <span id="packPercent">0%</span>
+    </div>
+    <div class="pack-progress-bar-wrap">
+      <div class="pack-progress-bar" id="packBar"></div>
+    </div>
+  </div>
+  <button class="reset-btn" onclick="resetPacking()">↺ Reset All</button>
+
+  <div class="packing-grid" style="margin-top: 2rem;">
+
+    <!-- Power & Light -->
+    <div class="pack-category">
+      <div class="pack-category-header">
+        <span class="pack-icon">🔦</span>
+        <h3>Power &amp; Light</h3>
+      </div>
+      <ul class="pack-items" id="pack-power">
+        <li class="pack-item"><input type="checkbox" id="p1" data-key="p1"><label for="p1">Portable power bank (20,000 mAh+)</label></li>
+        <li class="pack-item"><input type="checkbox" id="p2" data-key="p2"><label for="p2">Solar charger panel</label></li>
+        <li class="pack-item"><input type="checkbox" id="p3" data-key="p3"><label for="p3">Rechargeable LED lanterns (×2)</label></li>
+        <li class="pack-item"><input type="checkbox" id="p4" data-key="p4"><label for="p4">Headlamps with red-light mode (×2)</label></li>
+        <li class="pack-item"><input type="checkbox" id="p5" data-key="p5"><label for="p5">Extra AA/AAA batteries</label></li>
+        <li class="pack-item"><input type="checkbox" id="p6" data-key="p6"><label for="p6">Candles + lighter / matches</label></li>
+      </ul>
+    </div>
+
+    <!-- Kitchen & Food -->
+    <div class="pack-category">
+      <div class="pack-category-header">
+        <span class="pack-icon">🍳</span>
+        <h3>Kitchen &amp; Food</h3>
+      </div>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="f1" data-key="f1"><label for="f1">Portable camp stove + fuel canisters</label></li>
+        <li class="pack-item"><input type="checkbox" id="f2" data-key="f2"><label for="f2">Cooler with ice packs</label></li>
+        <li class="pack-item"><input type="checkbox" id="f3" data-key="f3"><label for="f3">Reusable water bottles (2L each)</label></li>
+        <li class="pack-item"><input type="checkbox" id="f4" data-key="f4"><label for="f4">Water purification tablets or filter</label></li>
+        <li class="pack-item"><input type="checkbox" id="f5" data-key="f5"><label for="f5">Dry / non-perishable food items</label></li>
+        <li class="pack-item"><input type="checkbox" id="f6" data-key="f6"><label for="f6">AeroPress or Moka pot (coffee)</label></li>
+        <li class="pack-item"><input type="checkbox" id="f7" data-key="f7"><label for="f7">Cookware, plates, cutlery</label></li>
+        <li class="pack-item"><input type="checkbox" id="f8" data-key="f8"><label for="f8">Dish soap, sponge, trash bags</label></li>
+      </ul>
+    </div>
+
+    <!-- Sleeping & Comfort -->
+    <div class="pack-category">
+      <div class="pack-category-header">
+        <span class="pack-icon">🛏️</span>
+        <h3>Sleeping &amp; Comfort</h3>
+      </div>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="s1" data-key="s1"><label for="s1">Sleeping bags rated to 5°C or lower</label></li>
+        <li class="pack-item"><input type="checkbox" id="s2" data-key="s2"><label for="s2">Extra blankets</label></li>
+        <li class="pack-item"><input type="checkbox" id="s3" data-key="s3"><label for="s3">Pillows</label></li>
+        <li class="pack-item"><input type="checkbox" id="s4" data-key="s4"><label for="s4">Warm layers (fleece, thermals)</label></li>
+        <li class="pack-item"><input type="checkbox" id="s5" data-key="s5"><label for="s5">Rain jacket / windbreaker</label></li>
+        <li class="pack-item"><input type="checkbox" id="s6" data-key="s6"><label for="s6">Waterproof boots or hiking shoes</label></li>
+      </ul>
+    </div>
+
+    <!-- Hygiene & Safety -->
+    <div class="pack-category">
+      <div class="pack-category-header">
+        <span class="pack-icon">🩺</span>
+        <h3>Hygiene &amp; Safety</h3>
+      </div>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="h1" data-key="h1"><label for="h1">First aid kit (full)</label></li>
+        <li class="pack-item"><input type="checkbox" id="h2" data-key="h2"><label for="h2">Biodegradable soap &amp; shampoo</label></li>
+        <li class="pack-item"><input type="checkbox" id="h3" data-key="h3"><label for="h3">Hand sanitizer</label></li>
+        <li class="pack-item"><input type="checkbox" id="h4" data-key="h4"><label for="h4">Toilet paper + small trowel</label></li>
+        <li class="pack-item"><input type="checkbox" id="h5" data-key="h5"><label for="h5">Insect repellent (DEET-based)</label></li>
+        <li class="pack-item"><input type="checkbox" id="h6" data-key="h6"><label for="h6">Sunscreen SPF 50+</label></li>
+        <li class="pack-item"><input type="checkbox" id="h7" data-key="h7"><label for="h7">Wet wipes</label></li>
+        <li class="pack-item"><input type="checkbox" id="h8" data-key="h8"><label for="h8">Bear spray (from outdoor store)</label></li>
+      </ul>
+    </div>
+
+    <!-- Navigation & Communication -->
+    <div class="pack-category">
+      <div class="pack-category-header">
+        <span class="pack-icon">🗺️</span>
+        <h3>Navigation &amp; Comms</h3>
+      </div>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="n1" data-key="n1"><label for="n1">Offline maps downloaded (Google Maps)</label></li>
+        <li class="pack-item"><input type="checkbox" id="n2" data-key="n2"><label for="n2">Physical map of the region</label></li>
+        <li class="pack-item"><input type="checkbox" id="n3" data-key="n3"><label for="n3">Portable weather radio</label></li>
+        <li class="pack-item"><input type="checkbox" id="n4" data-key="n4"><label for="n4">Whistle (emergency signaling)</label></li>
+        <li class="pack-item"><input type="checkbox" id="n5" data-key="n5"><label for="n5">Compass</label></li>
+        <li class="pack-item"><input type="checkbox" id="n6" data-key="n6"><label for="n6">All devices charged to 100% at departure</label></li>
+      </ul>
+    </div>
+
+    <!-- Entertainment & Stargazing -->
+    <div class="pack-category">
+      <div class="pack-category-header">
+        <span class="pack-icon">🔭</span>
+        <h3>Entertainment &amp; Stargazing</h3>
+      </div>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="e1" data-key="e1"><label for="e1">Stellarium / SkySafari downloaded offline</label></li>
+        <li class="pack-item"><input type="checkbox" id="e2" data-key="e2"><label for="e2">Books, cards, or board games</label></li>
+        <li class="pack-item"><input type="checkbox" id="e3" data-key="e3"><label for="e3">Camera + extra batteries / charger</label></li>
+        <li class="pack-item"><input type="checkbox" id="e4" data-key="e4"><label for="e4">Binoculars (wildlife + stars)</label></li>
+        <li class="pack-item"><input type="checkbox" id="e5" data-key="e5"><label for="e5">Tripod (for Milky Way long exposure)</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     ANIMAL SAFETY
+============================================================ -->
+<div class="section-wrap" id="safety">
+<section>
+  <span class="section-label">Know Before You Go</span>
+  <h2 class="section-title">Animal &amp; Wilderness Safety</h2>
+  <p class="section-desc">Ontario wilderness in April is active. Know what to look for and how to respond.</p>
+  <div class="divider"></div>
+  <div class="accordion" id="safetyAccordion">
+
+    <div class="accordion-item" id="acc-bear">
+      <button class="accordion-btn" onclick="toggleAccordion('acc-bear')">
+        <div class="accordion-btn-left">
+          <span class="animal-icon">🐻</span>
+          <span>Black Bear <span class="threat-badge">HIGH AWARENESS</span></span>
+        </div>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="accordion-body">
+        <ul>
+          <li>Never leave food outside, in a tent, or in open view — store in car or bear-proof container</li>
+          <li>If encountered: stay calm, speak firmly in a low voice, back away slowly</li>
+          <li>Do NOT run — it triggers a predatory chase response</li>
+          <li>Carry bear spray (available at Canadian Tire or MEC) and know how to use it</li>
+          <li>Make noise on trails: bear bells, clapping, or talking aloud helps prevent surprise encounters</li>
+          <li>Bears are emerging from dens in April — particularly hungry and bold</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item" id="acc-moose">
+      <button class="accordion-btn" onclick="toggleAccordion('acc-moose')">
+        <div class="accordion-btn-left">
+          <span class="animal-icon">🦌</span>
+          <span>Moose <span class="threat-badge">HIGH AWARENESS</span></span>
+        </div>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="accordion-body">
+        <ul>
+          <li>Moose are aggressive, especially females with calves in spring</li>
+          <li>Give a very wide berth — if a moose charges, run and hide behind a large tree or solid object</li>
+          <li>Never approach or attempt to feed a moose — they are not docile</li>
+          <li>On roads: slow down significantly at dawn and dusk — moose don't react like deer (they don't freeze and jump, they lunge)</li>
+          <li>Moose-vehicle collisions are extremely dangerous due to the animal's height and weight</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item" id="acc-snake">
+      <button class="accordion-btn" onclick="toggleAccordion('acc-snake')">
+        <div class="accordion-btn-left">
+          <span class="animal-icon">🐍</span>
+          <span>Snakes (Massasauga Rattlesnake possible)</span>
+        </div>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="accordion-body">
+        <ul>
+          <li>Massasauga rattlesnakes exist in parts of the Canadian Shield — Ontario's only venomous snake</li>
+          <li>Watch where you step and where you place your hands, especially on rocky outcrops and sunny ledges</li>
+          <li>Wear closed-toe shoes (no sandals) on all trails</li>
+          <li>Snakes are harmless if not approached — they use venom defensively, not offensively</li>
+          <li>If bitten: stay calm, immobilize the limb, and get to North Hastings Hospital immediately</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item" id="acc-tick">
+      <button class="accordion-btn" onclick="toggleAccordion('acc-tick')">
+        <div class="accordion-btn-left">
+          <span class="animal-icon">🪲</span>
+          <span>Ticks (Black-legged / Deer Ticks) <span class="threat-badge">HIGH AWARENESS</span></span>
+        </div>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="accordion-body">
+        <ul>
+          <li>Deer ticks (Lyme disease vector) are active from early April in Ontario — peak season starts now</li>
+          <li>Wear long sleeves and tuck pants into socks on all trails</li>
+          <li>Apply DEET or permethrin to clothing and exposed skin</li>
+          <li>Do a full tick check after every single hike: armpits, behind knees, scalp, groin, waistband</li>
+          <li>Remove embedded ticks immediately with fine-tipped tweezers — pull steadily, don't twist</li>
+          <li>If a tick has been attached for 36+ hours, consult a doctor about Lyme disease prophylaxis</li>
+          <li>Save removed ticks in a sealed bag for testing if symptoms develop</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item" id="acc-bugs">
+      <button class="accordion-btn" onclick="toggleAccordion('acc-bugs')">
+        <div class="accordion-btn-left">
+          <span class="animal-icon">🦟</span>
+          <span>Black Flies &amp; Mosquitoes</span>
+        </div>
+        <span class="accordion-chevron">▼</span>
+      </button>
+      <div class="accordion-body">
+        <ul>
+          <li>Black fly season in Ontario Highlands typically starts late April — you may hit the leading edge</li>
+          <li>Black flies are worse near running water and in shaded areas</li>
+          <li>DEET 30%+ is the most effective repellent — apply to all exposed skin</li>
+          <li>A head net (lightweight, stuffs into a pocket) is worth packing for heavy bug areas</li>
+          <li>Mosquitoes prefer dusk and dawn — be covered at those times especially near the lake</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     CAR SAFETY
+============================================================ -->
+<div class="section-wrap alt" id="car">
+<section>
+  <span class="section-label">Vehicle Preparedness</span>
+  <h2 class="section-title">Car Safety Checklist</h2>
+  <p class="section-desc">Verify before you leave Brampton — some of this can't be sourced past Bancroft.</p>
+  <div class="divider"></div>
+  <div class="car-grid">
+
+    <div class="car-checklist">
+      <h4>🔋 Power &amp; Engine</h4>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="c1" data-key="c1"><label for="c1">Full tank of gas before leaving</label></li>
+        <li class="pack-item"><input type="checkbox" id="c2" data-key="c2"><label for="c2">Portable jump starter / jumper cables</label></li>
+        <li class="pack-item"><input type="checkbox" id="c3" data-key="c3">  <label for="c3">Extra windshield washer fluid</label></li>
+      </ul>
+    </div>
+
+    <div class="car-checklist">
+      <h4>🛞 Tires &amp; Road</h4>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="c4" data-key="c4"><label for="c4">Spare tire (pressure checked)</label></li>
+        <li class="pack-item"><input type="checkbox" id="c5" data-key="c5"><label for="c5">Tire inflator / portable air pump</label></li>
+        <li class="pack-item"><input type="checkbox" id="c6" data-key="c6"><label for="c6">Reflective triangles or road flares</label></li>
+        <li class="pack-item"><input type="checkbox" id="c7" data-key="c7"><label for="c7">Tow rope</label></li>
+      </ul>
+    </div>
+
+    <div class="car-checklist">
+      <h4>🧰 Tools &amp; Gear</h4>
+      <ul class="pack-items">
+        <li class="pack-item"><input type="checkbox" id="c8" data-key="c8"><label for="c8">Basic tool kit (screwdrivers, duct tape)</label></li>
+        <li class="pack-item"><input type="checkbox" id="c9" data-key="c9"><label for="c9">Car first aid kit</label></li>
+        <li class="pack-item"><input type="checkbox" id="c10" data-key="c10"><label for="c10">Blanket (for cold breakdown)</label></li>
+        <li class="pack-item"><input type="checkbox" id="c11" data-key="c11"><label for="c11">Ice scraper (April mornings frost)</label></li>
+        <li class="pack-item"><input type="checkbox" id="c12" data-key="c12"><label for="c12">Phone mount for navigation</label></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     SAFETY PRE-DEPARTURE CHECKLIST
+============================================================ -->
+<div class="section-wrap" id="safety-check">
+<section>
+  <span class="section-label">Before You Leave Brampton</span>
+  <h2 class="section-title">Pre-Departure Safety Checklist</h2>
+  <div class="divider"></div>
+  <div class="safety-check-grid">
+    <div class="safety-check-item"><input type="checkbox" id="sc1" data-key="sc1"><label for="sc1">Share full itinerary with a contact back home</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc2" data-key="sc2"><label for="sc2">All devices charged to 100%</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc3" data-key="sc3"><label for="sc3">Offline maps downloaded for entire route</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc4" data-key="sc4"><label for="sc4">Weather forecast checked for all 3 days</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc5" data-key="sc5"><label for="sc5">Cottage host informed of arrival time</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc6" data-key="sc6"><label for="sc6">Emergency contacts saved in both phones</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc7" data-key="sc7"><label for="sc7">Bear spray purchased and accessible in car</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc8" data-key="sc8"><label for="sc8">DEET repellent packed and accessible</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc9" data-key="sc9"><label for="sc9">Physical map of area in glove box</label></div>
+    <div class="safety-check-item"><input type="checkbox" id="sc10" data-key="sc10"><label for="sc10">Algonquin day-use permit plan confirmed</label></div>
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     EMERGENCY CONTACTS
+============================================================ -->
+<div class="section-wrap dark" id="emergency">
+<section>
+  <div class="emergency-box">
+    <span class="section-label">In Case of Emergency</span>
+    <h2 class="section-title">Emergency Contacts</h2>
+    <div class="divider"></div>
+    <div class="contacts-grid">
+      <div class="contact-item">
+        <div class="c-label">Universal Emergency</div>
+        <div class="c-name">Emergency Services</div>
+        <div class="c-num">911</div>
+      </div>
+      <div class="contact-item">
+        <div class="c-label">Ontario Provincial Police</div>
+        <div class="c-name">OPP Non-Emergency</div>
+        <div class="c-num">1-888-310-1122</div>
+      </div>
+      <div class="contact-item">
+        <div class="c-label">Nearest Hospital (~20 min)</div>
+        <div class="c-name">North Hastings Hospital — Bancroft</div>
+        <div class="c-num">613-332-2825</div>
+      </div>
+      <div class="contact-item">
+        <div class="c-label">Algonquin Park Rangers</div>
+        <div class="c-name">Algonquin Park Office</div>
+        <div class="c-num">705-633-5572</div>
+      </div>
+      <div class="contact-item">
+        <div class="c-label">Ontario Poison Control</div>
+        <div class="c-name">Poison Control Centre</div>
+        <div class="c-num">1-800-268-9017</div>
+      </div>
+      <div class="contact-item">
+        <div class="c-label">Ministry of Natural Resources</div>
+        <div class="c-name">MNRF Tips Line</div>
+        <div class="c-num">1-877-847-7667</div>
+      </div>
+    </div>
+    <div class="hospital-note">
+      🏥 <strong>Nearest Hospital:</strong> North Hastings Community Health Centre, 145 Hastings St N, Bancroft, ON — approximately 20 minutes from L'Amable Lake. Emergency services available. Know the route before you need it.
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============================================================
+     PRO TIPS
+============================================================ -->
+<div class="tips-section">
+  <div style="max-width:1200px; margin: 0 auto; padding: 0 2rem;">
+    <span class="section-label">From Experience</span>
+    <h2 class="section-title">Pro Notes &amp; Trip Tips</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-num">01</div>
+      <h4>No Power — Plan Ahead</h4>
+      <p>Charge absolutely everything to 100% in Brampton. Power banks, cameras, headlamps. April days are short. You'll thank yourself by day 2 when everything still has battery.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">02</div>
+      <h4>Gas North of Bancroft is Scarce</h4>
+      <p>Fill up fully before leaving the GTA and again at Bancroft before heading to the cottage. Gas stations past Bancroft toward Maynooth close early or don't exist.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">03</div>
+      <h4>April = Unpredictable</h4>
+      <p>You can see frost, sleet, sunshine, and a thunderstorm in the same 24 hours in April in this region. Pack for cold. Getting unexpectedly cold at an off-grid cottage is miserable.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">04</div>
+      <h4>Milky Way Window</h4>
+      <p>The galactic core is best viewed after 11 PM in April. If there's cloud cover, wait. Clear nights in this area can be extraordinary. Keep the Stellarium app running to track the sky in real time.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">05</div>
+      <h4>Tick Checks Are Non-Negotiable</h4>
+      <p>Every person, every hike. Lyme disease is real in Ontario and the tick season starts in April. 36 hours is the window. If you find an embedded tick and feel flu symptoms in 2 weeks, see a doctor immediately.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">06</div>
+      <h4>Leave No Trace</h4>
+      <p>Pack out everything you pack in. The L'Amable Lake and Bancroft area is pristine because locals and repeat visitors respect it. Keep campfires contained and extinguish fully before sleeping.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">07</div>
+      <h4>Morning Light on the Lake</h4>
+      <p>Wake up at sunrise at least once. The mist coming off a cold April lake in the first light is something you'll remember for years. Bring coffee and binoculars to the dock.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">08</div>
+      <h4>Cellular Service Varies</h4>
+      <p>Rogers and Bell have partial coverage in this area. Telus is generally strongest north of Bancroft. Text may work when voice doesn't. Download everything offline before you go — don't rely on data in the park.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <p>🌲 L'Amable Lake &amp; Algonquin Trip Guide &nbsp;·&nbsp; April 17–19, 2025 &nbsp;·&nbsp; Brampton, ON</p>
+  <p style="margin-top: 0.5rem; font-size: 0.7rem; opacity: 0.5;">This guide is for personal trip use. Verify all opening hours, fees, and conditions before departure. Always carry emergency contacts and inform someone of your whereabouts.</p>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // --- NAV ---
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // --- ACCORDION ---
+  function toggleAccordion(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.accordion-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // --- PACKING CHECKBOXES (localStorage) ---
+  const PACK_KEY = 'lamable_packing_v1';
+
+  function loadCheckboxState() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(PACK_KEY) || '{}');
+      document.querySelectorAll('[data-key]').forEach(cb => {
+        if (saved[cb.dataset.key]) {
+          cb.checked = true;
+        }
+      });
+    } catch(e) {}
+  }
+
+  function saveCheckboxState() {
+    const state = {};
+    document.querySelectorAll('[data-key]').forEach(cb => {
+      state[cb.dataset.key] = cb.checked;
+    });
+    try {
+      localStorage.setItem(PACK_KEY, JSON.stringify(state));
+    } catch(e) {}
+  }
+
+  function updateProgress() {
+    const all = document.querySelectorAll('[data-key]');
+    const checked = document.querySelectorAll('[data-key]:checked');
+    const pct = all.length ? Math.round((checked.length / all.length) * 100) : 0;
+    document.getElementById('packBar').style.width = pct + '%';
+    document.getElementById('packPercent').textContent = pct + '%';
+  }
+
+  function resetPacking() {
+    document.querySelectorAll('[data-key]').forEach(cb => cb.checked = false);
+    saveCheckboxState();
+    updateProgress();
+  }
+
+  document.querySelectorAll('[data-key]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      saveCheckboxState();
+      updateProgress();
+    });
+  });
+
+  // Init on load
+  loadCheckboxState();
+  updateProgress();
+
+  // --- SMOOTH ACTIVE NAV HIGHLIGHT ---
+  const sections = document.querySelectorAll('div[id], section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  function onScroll() {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < 120) current = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = '';
+      link.style.borderBottomColor = '';
+      if (link.getAttribute('href') === '#' + current) {
+        link.style.color = 'var(--amber-light)';
+        link.style.borderBottomColor = 'var(--amber-light)';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+</body>
+</html>
